@@ -7,7 +7,8 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import useAuth from "./../../../../hooks/useAuth";
 
 const theme = createTheme({
   palette: {
@@ -21,6 +22,8 @@ const theme = createTheme({
 });
 
 const Navigation = () => {
+  const { user, logout } = useAuth();
+
   return (
     <Box sx={{ flexGrow: 1, boxShadow: 0 }}>
       <ThemeProvider theme={theme}>
@@ -35,34 +38,58 @@ const Navigation = () => {
             >
               <MenuIcon />
             </IconButton>
+
             <Typography
               variant="h6"
               component="div"
               sx={{ flexDirection: "row", ml: "auto", mr: 2 }}
             >
-              Explore
+              <NavLink
+                style={{
+                  textDecoration: "none",
+                  fontWeight: "600",
+                  color: "black",
+                }}
+                to="/explore"
+              >
+                {" "}
+                Explore
+              </NavLink>
             </Typography>
+
             <Button
+              to="/dashboard"
               variant="contained"
               color="secondary"
               sx={{ border: 1, mr: 2 }}
             >
               Dashboard
             </Button>
-            <Button variant="contained" color="primary" sx={{ mr: 2 }}>
-              Logout
-            </Button>
-            <ThemeProvider theme={theme}>
-              <Link to="/login">
+            {user?.email ? (
+              <Button
+                onClick={logout}
+                variant="contained"
+                color="primary"
+                sx={{ mr: 2 }}
+              >
+                Logout
+              </Button>
+            ) : (
+              <NavLink
+                style={{ textDecoration: "none", fontWeight: "600" }}
+                to="/login"
+              >
                 <Button
                   variant="contained"
                   color="primary"
-                  sx={{ textDecoration: 0 }}
+                  sx={{ textDecoration: 0, mr: 2 }}
                 >
                   Login
                 </Button>
-              </Link>
-            </ThemeProvider>
+              </NavLink>
+            )}
+
+            <ThemeProvider theme={theme}></ThemeProvider>
           </Toolbar>
         </AppBar>
       </ThemeProvider>

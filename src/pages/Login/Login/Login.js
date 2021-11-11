@@ -9,8 +9,9 @@ import {
 } from "@mui/material";
 import { Grid } from "@mui/material";
 import login from "../../../images/login.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import useAuth from "../../../hooks/useAuth";
 
 const theme = createTheme({
   palette: {
@@ -25,10 +26,10 @@ const theme = createTheme({
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  // const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+  const { user, loginUser, signInWithGoogle, isLoading } = useAuth();
 
-  // const location = useLocation();
-  // const history = useHistory();
+  const location = useLocation();
+  const history = useHistory();
 
   const handleOnChange = (e) => {
     const field = e.target.name;
@@ -39,8 +40,12 @@ const Login = () => {
   };
 
   const handleLoginSubmit = (e) => {
-    // loginUser(loginData.email, loginData.password, location, history);
+    loginUser(loginData?.email, loginData?.password);
     e.preventDefault();
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle(location, history);
   };
 
   return (
@@ -92,15 +97,17 @@ const Login = () => {
                   <Button variant="text">New User? Please Register</Button>
                 </NavLink>
               </ThemeProvider>
-              {/* {isLoading && <CircularProgress />}
+              {isLoading && <CircularProgress />}
               {user?.email && (
                 <Alert severity="success">Login successfully!</Alert>
               )}
-              {authError && <Alert severity="error">{authError}</Alert>} */}
+              {/* {authError && <Alert severity="error">{authError}</Alert>} */}
             </form>
             <hr />
             <ThemeProvider theme={theme}>
-              <Button variant="contained">Google Sign In</Button>
+              <Button onClick={handleGoogleSignIn} variant="contained">
+                Google Sign In
+              </Button>
             </ThemeProvider>
           </Grid>
           <Grid item xs={12} md={6}>

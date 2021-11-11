@@ -27,7 +27,7 @@ const Navigation = () => {
   return (
     <Box sx={{ flexGrow: 1, boxShadow: 0 }}>
       <ThemeProvider theme={theme}>
-        <AppBar color="secondary" position="static" sx={{ boxShadow: 1 }}>
+        <AppBar color="secondary" position="static" sx={{ boxShadow: 0 }}>
           <Toolbar>
             <IconButton
               size="large"

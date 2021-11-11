@@ -5,6 +5,8 @@ import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
+import Explore from "./pages/Explore/Explore";
+import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard></Dashboard>
             </Route>
+            <PrivateRoute exact path="/explore">
+              <Explore></Explore>
+            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>

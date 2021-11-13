@@ -20,7 +20,6 @@ const theme = createTheme({
 
 const Product = ({ product }) => {
   const { name, img, description, _id, price } = product;
-  console.log(product);
   return (
     <Grid item xs={12} sm={12} md={4}>
       <Card sx={{ maxWidth: 345, textAlign: "left", boxShadow: 3 }}>

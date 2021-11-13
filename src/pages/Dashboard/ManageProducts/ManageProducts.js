@@ -27,7 +27,7 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/products`;
+    const url = `https://cryptic-shelf-02140.herokuapp.com//products`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -36,7 +36,7 @@ const ManageProducts = () => {
   const handleDelete = (id) => {
     const sure = window.confirm("Do you want to delete this plan? ");
     if (sure) {
-      fetch(`http://localhost:5000/devproducts/${id}`, {
+      fetch(`https://cryptic-shelf-02140.herokuapp.com//${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

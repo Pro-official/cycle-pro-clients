@@ -7,7 +7,7 @@ import ReviewItem from "./ReviewItem";
 const ReviewsItem = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    const url = "http://localhost:5000/reviews";
+    const url = "https://cryptic-shelf-02140.herokuapp.com/reviews";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setReviews(data));

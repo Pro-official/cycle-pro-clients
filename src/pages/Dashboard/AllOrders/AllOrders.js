@@ -27,7 +27,7 @@ const AllOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/orders`;
+    const url = `https://cryptic-shelf-02140.herokuapp.com/orders`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
@@ -36,7 +36,7 @@ const AllOrders = () => {
   const handleDelete = (id) => {
     const sure = window.confirm("Do you want to delete this plan? ");
     if (sure) {
-      fetch(`http://localhost:5000/devplan/${id}`, {
+      fetch(`https://cryptic-shelf-02140.herokuapp.com//${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

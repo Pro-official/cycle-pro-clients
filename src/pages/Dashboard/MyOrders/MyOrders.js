@@ -30,7 +30,7 @@ const MyOrders = () => {
   const userEmail = user.email;
 
   useEffect(() => {
-    const url = `http://localhost:5000/orders}`;
+    const url = `https://cryptic-shelf-02140.herokuapp.com/orders}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
@@ -39,7 +39,7 @@ const MyOrders = () => {
   const handleDelete = (id) => {
     const sure = window.confirm("Do you want to delete this plan? ");
     if (sure) {
-      fetch(`http://localhost:5000/devplan/${id}`, {
+      fetch(`https://cryptic-shelf-02140.herokuapp.com/devplan/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

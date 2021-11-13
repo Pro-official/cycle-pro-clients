@@ -26,7 +26,7 @@ const AddProduct = () => {
 
     const newPlan = { name, price, description, img };
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://cryptic-shelf-02140.herokuapp.com/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

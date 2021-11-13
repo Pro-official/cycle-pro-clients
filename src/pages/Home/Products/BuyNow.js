@@ -36,7 +36,7 @@ const BuyNow = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${id}`)
+    fetch(`https://cryptic-shelf-02140.herokuapp.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
@@ -66,7 +66,7 @@ const BuyNow = () => {
     };
     console.log(order);
     // send to the server
-    fetch("http://localhost:5000/orders", {
+    fetch("https://cryptic-shelf-02140.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

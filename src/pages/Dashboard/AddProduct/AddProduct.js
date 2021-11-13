@@ -1,10 +1,19 @@
 import React, { useRef } from "react";
 
+const style = {
+  textAlign: "center",
+  margin: "30px auto",
+  width: "50%",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 const AddProduct = () => {
   // const { user } = useAuth();
   const nameRef = useRef();
   const priceRef = useRef();
-  const lengthRef = useRef();
   const imgRef = useRef();
   const describeRef = useRef();
 
@@ -12,13 +21,12 @@ const AddProduct = () => {
     console.log("Hi");
     const name = nameRef.current.value;
     const price = priceRef.current.value;
-    const length = lengthRef.current.value;
     const img = imgRef.current.value;
-    const describe = describeRef.current.value;
+    const description = describeRef.current.value;
 
-    const newPlan = { name, price, length, describe, img };
+    const newPlan = { name, price, description, img };
 
-    fetch("http://localhost:5000/orders", {
+    fetch("http://localhost:5000/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,7 +46,7 @@ const AddProduct = () => {
   return (
     <div className=" individual">
       <h1>Place Your Order</h1>
-      <form className="detail-form" onSubmit={handleSubmit}>
+      <form style={{ style }} className="detail-form" onSubmit={handleSubmit}>
         <input
           className="mb-2"
           type="text"
@@ -55,13 +63,7 @@ const AddProduct = () => {
           placeholder="Price"
           required
         />
-        <input
-          className="mb-2"
-          type="text"
-          ref={lengthRef}
-          placeholder="Length"
-          required
-        />
+
         <input
           className="mb-2"
           type="text"
@@ -80,5 +82,4 @@ const AddProduct = () => {
     </div>
   );
 };
-
 export default AddProduct;

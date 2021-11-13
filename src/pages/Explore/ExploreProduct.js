@@ -36,7 +36,7 @@ const ExploreProducts = ({ product }) => {
               {name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {description.slice(0, 145)}...
+              {description}...
             </Typography>
             <Typography
               sx={{ mt: 1.5, fontWeight: "bold" }}

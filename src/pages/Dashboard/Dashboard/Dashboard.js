@@ -29,7 +29,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-  const { admin } = useAuth();
+  const { admin, logout } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -91,7 +91,9 @@ function Dashboard(props) {
           </Link>
         </Box>
       )}
-      <Button color="inherit">Logout</Button>
+      <Button onClick={logout} color="inherit">
+        Logout
+      </Button>
     </Box>
   );
 

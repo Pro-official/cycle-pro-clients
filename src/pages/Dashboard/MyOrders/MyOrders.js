@@ -6,9 +6,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import useAuth from "../../../hooks/useAuth";
 import { Button } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import useAuth from "../../../hooks/useAuth";
 
 const theme = createTheme({
   palette: {
@@ -24,7 +24,7 @@ const theme = createTheme({
   },
 });
 
-const MyOrders = ({ email }) => {
+const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const { user } = useAuth();
   const userEmail = user.email;
@@ -59,7 +59,7 @@ const MyOrders = ({ email }) => {
   return (
     <div>
       <TableContainer component={Paper}>
-        <Table sx={{}} aria-label="Orders table">
+        <Table aria-label="Orders table">
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>

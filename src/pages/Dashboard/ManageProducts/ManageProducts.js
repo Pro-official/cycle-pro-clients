@@ -36,7 +36,7 @@ const ManageProducts = () => {
   const handleDelete = (id) => {
     const sure = window.confirm("Do you want to delete this plan? ");
     if (sure) {
-      fetch(`http://localhost:5000/devplan/${id}`, {
+      fetch(`http://localhost:5000/devproducts/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

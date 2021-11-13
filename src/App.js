@@ -7,6 +7,8 @@ import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Explore from "./pages/Explore/Explore";
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
+import AddProduct from "./pages/Dashboard/AddProduct/AddProduct";
+import BuyNow from "./pages/Home/Products/BuyNow";
 
 function App() {
   return (
@@ -26,8 +28,14 @@ function App() {
             <Route exact path="/register">
               <Register></Register>
             </Route>
-            <Route exact path="/dashboard">
+            <PrivateRoute exact path="/dashboard">
               <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute exact path="/buynow/:id">
+              <BuyNow></BuyNow>
+            </PrivateRoute>
+            <Route exact path="/addproduct">
+              <AddProduct></AddProduct>
             </Route>
             <PrivateRoute exact path="/explore">
               <Explore></Explore>

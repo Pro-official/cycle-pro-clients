@@ -57,23 +57,33 @@ const Navigation = () => {
               </NavLink>
             </Typography>
 
-            <Button
-              to="/dashboard"
-              variant="contained"
-              color="secondary"
-              sx={{ border: 1, mr: 2 }}
-            >
-              Dashboard
-            </Button>
             {user?.email ? (
-              <Button
-                onClick={logout}
-                variant="contained"
-                color="primary"
-                sx={{ mr: 2 }}
-              >
-                Logout
-              </Button>
+              <>
+                <NavLink
+                  style={{ textDecoration: "none", fontWeight: "600" }}
+                  to="/dashboard"
+                >
+                  <Button
+                    to="/dashboard"
+                    variant="contained"
+                    color="secondary"
+                    sx={{ border: 1, mr: 2 }}
+                  >
+                    Dashboard
+                  </Button>
+                </NavLink>
+                <Typography variant="h6" component="div" sx={{ mr: 2 }}>
+                  {user?.displayName}
+                </Typography>
+                <Button
+                  onClick={logout}
+                  variant="contained"
+                  color="primary"
+                  sx={{ mr: 2 }}
+                >
+                  Logout
+                </Button>
+              </>
             ) : (
               <NavLink
                 style={{ textDecoration: "none", fontWeight: "600" }}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Stunt Cycle",
+    "price": "1,000",
+    "description": "We all know life is not always an easy ride along a beautiful cycling path. Sometimes it is just like a bicycle wheel spinning around on the ups and downs of a muddy trail",
+    "img": "https://i.imgur.com/yntABZR.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Marathon Cycling",
+    "price": "1,000",
+    "description": "We all know life is not always an easy ride along a beautiful cycling path. Sometimes it is just like a bicycle wheel spinning around on the ups and downs of a muddy trail",
+    "img": "https://i.imgur.com/nxdk3tP.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Stylish Cycle",
+    "price": "1,000",
+    "description": "We all know life is not always an easy ride along a beautiful cycling path. Sometimes it is just like a bicycle wheel spinning around on the ups and downs of a muddy trail",
+    "img": "https://i.imgur.com/im1BflT.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Adventurous One",
+    "price": "1,000",
+    "description": "We all know life is not always an easy ride along a beautiful cycling path. Sometimes it is just like a bicycle wheel spinning around on the ups and downs of a muddy trail",
+    "img": "https://i.imgur.com/h6xK6Xz.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Urban Cycle",
+    "price": "1,000",
+    "description": "We all know life is not always an easy ride along a beautiful cycling path. Sometimes it is just like a bicycle wheel spinning around on the ups and downs of a muddy trail",
+    "img": "https://i.imgur.com/rtPTov0.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Friendly Cycle",
+    "price": "1,000",
+    "description": "We all know life is not always an easy ride along a beautiful cycling path. Sometimes it is just like a bicycle wheel spinning around on the ups and downs of a muddy trail",
+    "img": "https://i.imgur.com/AC9cQI3.jpg"
+  }
+]

@@ -18,6 +18,9 @@ const theme = createTheme({
     secondary: {
       main: "#ffffff",
     },
+    nav: {
+      main: "#000000",
+    },
   },
 });
 
@@ -25,19 +28,31 @@ const Navigation = () => {
   const { user, logout } = useAuth();
 
   return (
-    <Box sx={{ flexGrow: 1, boxShadow: 0 }}>
+    <Box sx={{ flexGrow: 1, boxShadow: 0, color: "white" }}>
       <ThemeProvider theme={theme}>
-        <AppBar color="secondary" position="static" sx={{ boxShadow: 0 }}>
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
+        <AppBar color="nav" position="static" sx={{ boxShadow: 0, mb: 4 }}>
+          <Toolbar color="nav">
+            <NavLink
+              style={{ textDecoration: "none", color: "white" }}
+              to="/home"
             >
-              <MenuIcon />
-            </IconButton>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+              >
+                <MenuIcon />
+                <Typography
+                  sx={{ ml: 2, fontWeight: "600", color: "white" }}
+                  variant="h6"
+                  component="div"
+                >
+                  Home
+                </Typography>
+              </IconButton>
+            </NavLink>
 
             <Typography
               variant="h6"
@@ -48,7 +63,7 @@ const Navigation = () => {
                 style={{
                   textDecoration: "none",
                   fontWeight: "600",
-                  color: "black",
+                  color: "white",
                 }}
                 to="/explore"
               >
@@ -72,7 +87,11 @@ const Navigation = () => {
                     Dashboard
                   </Button>
                 </NavLink>
-                <Typography variant="h6" component="div" sx={{ mr: 2 }}>
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{ mr: 2, color: "white" }}
+                >
                   {user?.displayName}
                 </Typography>
                 <Button
@@ -98,8 +117,6 @@ const Navigation = () => {
                 </Button>
               </NavLink>
             )}
-
-            <ThemeProvider theme={theme}></ThemeProvider>
           </Toolbar>
         </AppBar>
       </ThemeProvider>

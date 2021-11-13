@@ -18,15 +18,16 @@ const theme = createTheme({
   },
 });
 
-const Product = ({ product }) => {
+const ExploreProducts = ({ product }) => {
   const { name, img, description, _id, price } = product;
   return (
-    <Grid item xs={12} sm={12} md={4}>
+    <Grid item xs={12} sm={12} md={3}>
       <Card sx={{ textAlign: "left", boxShadow: 3 }}>
         <CardActionArea>
           <CardMedia
             component="img"
-            height="140"
+            height="180"
+            width="100%"
             image={img}
             alt="green iguana"
           />
@@ -35,14 +36,14 @@ const Product = ({ product }) => {
               {name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {description}
+              {description.slice(0, 145)}...
             </Typography>
             <Typography
               sx={{ mt: 1.5, fontWeight: "bold" }}
               variant="body2"
               color="text.secondary"
             >
-              {price}$
+              $ {price}
             </Typography>
           </CardContent>
           <ThemeProvider theme={theme}>
@@ -63,4 +64,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default ExploreProducts;

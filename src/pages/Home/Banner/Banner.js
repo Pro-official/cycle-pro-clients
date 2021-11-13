@@ -19,7 +19,7 @@ const theme = createTheme({
 
 const Banner = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, mt: -5 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}

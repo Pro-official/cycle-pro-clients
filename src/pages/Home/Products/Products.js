@@ -21,13 +21,16 @@ const Products = () => {
       <Typography variant="h6" component="h1">
         See All The Top Products Made by Our Company.
       </Typography>
-      <Container sx={{ mt: 6 }} maxWidth="lg">
+      <Container
+        style={{ marginTop: "3%", marginLeft: "auto", marginRight: "auto" }}
+        maxWidth="lg"
+      >
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
+          columns={{ xs: 12, sm: 12, md: 12 }}
         >
-          {products.map((product) => (
+          {products.slice(0, 6).map((product) => (
             <Product product={product} key={product._id}></Product>
           ))}
         </Grid>

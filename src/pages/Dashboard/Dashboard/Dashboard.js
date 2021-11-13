@@ -3,49 +3,96 @@ import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
+import DashboardHome from "../DashboardHome/DashboardHome";
+import MyOrders from "../MyOrders/MyOrders";
+import Review from "../Review/Review";
+import Payment from "../Payment/Payment";
+import AllOrders from "../AllOrders/AllOrders";
+import AddProduct from "../AddProduct/AddProduct";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageProducts from "../ManageProducts/ManageProducts";
+import useAuth from "../../../hooks/useAuth";
+import AdminRoute from "../../AdminRoute/AdminRoute";
+import AuthProvider from "../../../contexts/AuthProvider/AuthProvider";
 
 const drawerWidth = 180;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  let { path, url } = useRouteMatch();
+  const { admin } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const drawer = (
-    <div>
+    <Box>
       <Toolbar />
+
       <Link
-        style={{ textDecoration: "none", color: "black", fontWeight: 700 }}
-        to="/home"
+        style={{ textDecoration: "none", fontWeight: 700, color: "black" }}
+        to={`${url}`}
       >
-        <Button color="inherit">Home</Button>
+        <Button color="inherit">Dashboard</Button>
       </Link>
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem sx={{ textAlign: "center" }} button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
+      <Link
+        style={{ textDecoration: "none", fontWeight: 700, color: "black" }}
+        to={`${url}/myorders`}
+      >
+        <Button color="inherit">My Orders</Button>
+      </Link>
+      <Link
+        style={{ textDecoration: "none", fontWeight: 700, color: "black" }}
+        to={`${url}/review`}
+      >
+        <Button color="inherit">Review</Button>
+      </Link>
+      <Link
+        style={{ textDecoration: "none", fontWeight: 700, color: "black" }}
+        to={`${url}/payment`}
+      >
+        <Button color="inherit">Payment</Button>
+      </Link>
+      {admin && (
+        <Box>
+          <Link
+            style={{ textDecoration: "none", fontWeight: 700, color: "black" }}
+            to={`${url}/allorders`}
+          >
+            <Button color="inherit">All Orders</Button>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", fontWeight: 700, color: "black" }}
+            to={`${url}/addproduct`}
+          >
+            <Button color="inherit">Add Product</Button>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", fontWeight: 700, color: "black" }}
+            to={`${url}/makeadmin`}
+          >
+            <Button color="inherit">Make Admin</Button>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", fontWeight: 700, color: "black" }}
+            to={`${url}/manageproducts`}
+          >
+            <Button color="inherit">Manage Products</Button>
+          </Link>
+        </Box>
+      )}
+      <Button color="inherit">Logout</Button>
+    </Box>
   );
 
   const container =
@@ -72,7 +119,17 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Dashboard
+            <Link
+              style={{
+                marginLeft: "20px",
+                textDecoration: "none",
+                // fontWeight: 700,
+                color: "White",
+              }}
+              to="/home"
+            >
+              HOME
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -122,18 +179,35 @@ function Dashboard(props) {
         }}
       >
         <Toolbar />
-        <Typography paragraph>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={5}>
-              {/* <Calendar date={date} setDate={setDate}></Calendar> */}
-              lalalalala
-            </Grid>
-            <Grid item xs={12} sm={7}>
-              {/* <Appointments date={date}></Appointments> */}
-              lululululu
-            </Grid>
-          </Grid>
-        </Typography>
+
+        <AuthProvider>
+          <Switch>
+            <Route exact path={path}>
+              <DashboardHome></DashboardHome>
+            </Route>
+            <Route path={`${path}/myorders`}>
+              <MyOrders></MyOrders>
+            </Route>
+            <Route path={`${path}/review`}>
+              <Review></Review>
+            </Route>
+            <Route path={`${path}/payment`}>
+              <Payment></Payment>
+            </Route>
+            <AdminRoute path={`${path}/allorders`}>
+              <AllOrders></AllOrders>
+            </AdminRoute>
+            <AdminRoute path={`${path}/addproduct`}>
+              <AddProduct></AddProduct>
+            </AdminRoute>
+            <AdminRoute path={`${path}/makeadmin`}>
+              <MakeAdmin></MakeAdmin>
+            </AdminRoute>
+            <AdminRoute path={`${path}/manageproducts`}>
+              <ManageProducts></ManageProducts>
+            </AdminRoute>
+          </Switch>
+        </AuthProvider>
       </Box>
     </Box>
   );

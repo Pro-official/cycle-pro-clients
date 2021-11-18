@@ -30,14 +30,14 @@ const MyOrders = () => {
   const userEmail = user.email;
 
   useEffect(() => {
-    const url = `https://cryptic-shelf-02140.herokuapp.com/orders}`;
+    const url = `https://cryptic-shelf-02140.herokuapp.com/orders`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
 
   const handleDelete = (id) => {
-    const sure = window.confirm("Do you want to delete this plan? ");
+    const sure = window.confirm("Do you want to delete this plan?");
     if (sure) {
       fetch(`https://cryptic-shelf-02140.herokuapp.com/devplan/${id}`, {
         method: "DELETE",
@@ -58,6 +58,7 @@ const MyOrders = () => {
 
   return (
     <div>
+      {/* <h1>{userEmail}</h1> */}
       <TableContainer component={Paper}>
         <Table aria-label="Orders table">
           <TableHead>
@@ -70,7 +71,7 @@ const MyOrders = () => {
           </TableHead>
           <TableBody>
             {orders
-              .filter((row) => orders.email === userEmail)
+              .filter((row) => row.email === userEmail)
               .map((row) => (
                 <TableRow
                   key={row._id}

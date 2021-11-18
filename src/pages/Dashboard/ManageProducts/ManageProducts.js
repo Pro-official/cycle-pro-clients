@@ -27,7 +27,7 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const url = `https://cryptic-shelf-02140.herokuapp.com//products`;
+    const url = `https://cryptic-shelf-02140.herokuapp.com/products`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));

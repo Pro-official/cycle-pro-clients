@@ -54,7 +54,7 @@ const ManageProducts = () => {
   };
   return (
     <div>
-      <h2>Orders: {products.length}</h2>
+      <h2>Total Orders: {products.length}</h2>
       <TableContainer component={Paper}>
         <Table aria-label="Products table">
           <TableHead>

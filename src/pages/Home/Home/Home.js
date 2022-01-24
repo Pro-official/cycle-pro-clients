@@ -1,7 +1,9 @@
 import React from "react";
+import Product from "../../Product/Product";
 import Banner from "../Banner/Banner";
+
 import Products from "../Products/Products";
-import ReviewsItem from "../ReviewsItem/ReviewsItem";
+// import ReviewsItem from "../ReviewsItem/ReviewsItem";
 import Navigation from "../Shared/Navigation/Navigation";
 
 const Home = () => {
@@ -10,7 +12,8 @@ const Home = () => {
       <Navigation></Navigation>
       <Banner></Banner>
       <Products></Products>
-      <ReviewsItem></ReviewsItem>
+      <Product></Product>
+      {/* <ReviewsItem></ReviewsItem> */}
     </div>
   );
 };

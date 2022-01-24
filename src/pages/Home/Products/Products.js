@@ -34,6 +34,7 @@ const Products = () => {
             <Product product={product} key={product._id}></Product>
           ))}
         </Grid>
+        <hr sx={{ mt: 7 }} />
       </Container>
     </Box>
   );
